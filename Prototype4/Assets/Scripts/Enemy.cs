@@ -27,5 +27,11 @@ public class Enemy : MonoBehaviour
         Vector3 lookDirection = (player.transform.position - transform.position).normalized;
         enemyRb.AddForce(lookDirection * speed); 
 
+        // remove the enemies when they fall off the scene
+        if(transform.position.y < -10)
+        {
+            Destroy(gameObject);
+        }
+
     }
 }
