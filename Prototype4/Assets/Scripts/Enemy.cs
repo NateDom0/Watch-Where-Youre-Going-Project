@@ -7,9 +7,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     private Rigidbody enemyRb;
-
-    // Need reference to our Player
-    private GameObject player;
+    private GameObject player; // Need reference to our Player
 
     public float speed = 1.0f;
 
@@ -27,7 +25,7 @@ public class Enemy : MonoBehaviour
         // Use Vector3 because we're taking in two different positions: player and current transform(enemy)
         // normalize the magnitude of this vector
         Vector3 lookDirection = (player.transform.position - transform.position).normalized;
-        enemyRb.AddForce( lookDirection * speed); 
+        enemyRb.AddForce(lookDirection * speed); 
 
     }
 }

@@ -16,9 +16,8 @@ public class RotateCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //variable to get player input
-        float horizontalInput = Input.GetAxis("Horizontal");
-
+        float horizontalInput = Input.GetAxis("Horizontal"); // variable to get player input
+        
         transform.Rotate(Vector3.up, horizontalInput * rotationSpeed * Time.deltaTime);
     }
 }
