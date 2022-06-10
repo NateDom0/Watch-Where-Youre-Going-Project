@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement; // added
+using UnityEngine.UI; // added
 
 public class PlayerController : MonoBehaviour
 {   
@@ -33,8 +35,12 @@ public class PlayerController : MonoBehaviour
         playerRb.AddForce(focalPoint.transform.forward * forwardInput * speed);
 
         powerupIndicator.transform.position = transform.position + new Vector3(0, -0.5f, 0); // set powerup indicator to player position
-        //playerAudio.PlayOneShot(punchSound, 1.0f);
-        
+
+        // If player falls off map, restart level
+        if (transform.position.y < -10)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 
 
