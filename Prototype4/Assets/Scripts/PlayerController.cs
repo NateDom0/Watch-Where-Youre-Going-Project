@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
     public AudioClip punchSound;
     private AudioSource playerAudio;
 
+    public GameObject gameOverScreen;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,7 +41,8 @@ public class PlayerController : MonoBehaviour
         // If player falls off map, restart level
         if (transform.position.y < -10)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            gameOverScreen.SetActive(true); 
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 
