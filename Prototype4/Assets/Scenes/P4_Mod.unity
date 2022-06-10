@@ -1184,7 +1184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e3491879b3904245afe2f2400104c0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 5.5
   hasPowerup: 0
   powerupIndicator: {fileID: 1430451198}
   punchSound: {fileID: 8300000, guid: 2e5d47c87da96624db7207452ac30d27, type: 3}
