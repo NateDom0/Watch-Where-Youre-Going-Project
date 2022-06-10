@@ -12,11 +12,15 @@ public class PlayerController : MonoBehaviour
     public bool hasPowerup = false; // initially set to false(off)
     public GameObject powerupIndicator;
 
+    public AudioClip punchSound;
+    private AudioSource playerAudio;
+
     // Start is called before the first frame update
     void Start()
     {
         playerRb = GetComponent<Rigidbody>(); //get reference to player's rigidbody
         focalPoint = GameObject.Find("Focal Point"); //reference to focal point object
+        playerAudio = GetComponent<AudioSource>(); 
     }
 
 
@@ -29,6 +33,8 @@ public class PlayerController : MonoBehaviour
         playerRb.AddForce(focalPoint.transform.forward * forwardInput * speed);
 
         powerupIndicator.transform.position = transform.position + new Vector3(0, -0.5f, 0); // set powerup indicator to player position
+        //playerAudio.PlayOneShot(punchSound, 1.0f);
+        
     }
 
 
@@ -64,11 +70,14 @@ public class PlayerController : MonoBehaviour
         {
             Rigidbody enemyRigidbody = collision.gameObject.GetComponent<Rigidbody>(); // get rigidbody of enemy
             Vector3 awayFromPlayer = collision.gameObject.transform.position - transform.position; // get direction to send enemy away from player
-
+            
+            
+            
 
             // apply force to enemy in direction away from player * powerupstrength, and force is applied instantly
             enemyRigidbody.AddForce(awayFromPlayer * powerupStrength, ForceMode.Impulse);
-
+            
+            playerAudio.PlayOneShot(punchSound, 1.0f);
 
             // Use concatenation to debug in console
             Debug.Log("Collided with " + collision.gameObject.name + " with powerup set to " + hasPowerup);
