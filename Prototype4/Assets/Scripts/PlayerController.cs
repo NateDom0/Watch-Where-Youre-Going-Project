@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     private GameObject focalPoint; 
     private float powerupStrength = 15.0f;
 
-    public float speed = 1.0f; 
+    public float speed = 5.0f; 
     public bool hasPowerup = false; // initially set to false(off)
     public GameObject powerupIndicator;
 
