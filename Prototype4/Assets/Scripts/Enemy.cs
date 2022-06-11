@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     private Rigidbody enemyRb;
     private GameObject player; // Need reference to our Player
 
-    public float speed = 1.0f;
+    public float speed = 3.0f;
 
     
     // Start is called before the first frame update
